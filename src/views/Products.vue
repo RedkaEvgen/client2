@@ -27,6 +27,9 @@
 <script setup>
 import {useProductsStore} from "@/store/modules/products";
 import ProductGroupByTag from "@/components/ProductGroupByTag/ProductGroupByTag.vue";
+import {storeToRefs} from "pinia";
 
-const {allProducts} = useProductsStore()
+const productStore = useProductsStore()
+
+const { allProducts } = storeToRefs(productStore);
 </script>

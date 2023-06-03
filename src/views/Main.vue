@@ -49,6 +49,7 @@ import ProductGroupByTag from "@/components/ProductGroupByTag/ProductGroupByTag.
 const modules = [Navigation];
 
 import {useProductsStore} from "@/store/modules/products";
+import {storeToRefs} from "pinia";
 
 const banners = [
   {
@@ -73,7 +74,10 @@ const banners = [
   }
 ]
 
-const {allProducts} = useProductsStore()
+
+const productStore = useProductsStore()
+
+const { allProducts } = storeToRefs(productStore);
 </script>
 
 <style scoped>
