@@ -48,5 +48,5 @@ const authStore = useAuthStore();
 
 const { user, userIsAuth, isAdmin } = storeToRefs(authStore);
 
-const userCartProducts = computed(() => Object.values(user.value.cart).map(el => el._id) || []);
+const userCartProducts = computed(() => user.value?.cart ? Object.values(user.value.cart).map(el => el._id) : []);
 </script>

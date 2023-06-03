@@ -39,12 +39,12 @@ const { allProducts } = storeToRefs(productStore)
 const userStore = useAuthStore();
 const { user } = storeToRefs(userStore);
 
-const userCartProducts = computed(() => Object.values(user.value.cart).reduce((acc, el) => {
+const userCartProducts = computed(() => user.value?.cart ? Object.values(user.value.cart).reduce((acc, el) => {
 
   acc[el.productId] = el;
 
   return acc
-}, { }) || [])
+}, { }) : [])
 
 
 const cartItems = computed(() =>
